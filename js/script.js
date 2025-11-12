@@ -1,5 +1,5 @@
-// Main Slider Configuration
 $(document).ready(function () {
+  // Main Slider Configuration
   $("#mainSlider").owlCarousel({
     items: 1,
     loop: true,
@@ -23,6 +23,20 @@ $(document).ready(function () {
         nav: true,
       },
     },
+  });
+
+  // Breaking News Ticker Carousel (Auto-scrolling)
+  $(".breaking-news-carousel").owlCarousel({
+    items: 1,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    nav: false,
+    dots: false,
+    animateOut: "slideOutUp",
+    animateIn: "slideInUp",
+    smartSpeed: 600,
   });
 
   // Bottom News Carousel Configuration
@@ -58,139 +72,84 @@ $(document).ready(function () {
     },
   });
 
-  // Breaking News Infinite Scroll Effect
-  const breakingNewsContent = document.querySelector(".breaking-news__content");
-  if (breakingNewsContent) {
-    const clone = breakingNewsContent.cloneNode(true);
-    breakingNewsContent.parentNode.appendChild(clone);
+  // Real-time Clock Update
+  function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    $("#currentTime").text(`${hours}:${minutes}:${seconds}`);
   }
 
-  // Smooth scroll for navigation links
-  document.querySelectorAll(".nav__link").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+  updateClock();
+  setInterval(updateClock, 1000);
 
-      // Remove active class from all links
-      document.querySelectorAll(".nav__link").forEach((l) => {
-        l.classList.remove("nav__link--active");
+  // Navigation Active State
+  $(".nav-list__link").on("click", function (e) {
+    e.preventDefault();
+    $(".nav-list__link").removeClass("nav-list__link--active");
+    $(this).addClass("nav-list__link--active");
+  });
+
+  // Night Mode Toggle
+  $(".night-mode-btn").on("click", function () {
+    $("body").toggleClass("night-mode");
+    const icon = $(this).find("i");
+    const text = $(this)
+      .contents()
+      .filter(function () {
+        return this.nodeType === 3;
+      })
+      .first();
+
+    if ($("body").hasClass("night-mode")) {
+      icon.removeClass("fa-moon").addClass("fa-sun");
+      text.replaceWith(" Gündüz modu");
+      $("body").css("filter", "invert(1) hue-rotate(180deg)");
+      $(
+        ".news-card__image, .slider-item__image, .bottom-news-item__image, .site-logo"
+      ).css("filter", "invert(1) hue-rotate(180deg)");
+    } else {
+      icon.removeClass("fa-sun").addClass("fa-moon");
+      text.replaceWith(" Gece modu");
+      $("body").css("filter", "none");
+      $(
+        ".news-card__image, .slider-item__image, .bottom-news-item__image, .site-logo"
+      ).css("filter", "none");
+    }
+  });
+
+  // Smooth Scroll for News Cards
+  $(".news-card")
+    .on("mouseenter", function () {
+      $(this).css("transform", "translateY(-8px)");
+    })
+    .on("mouseleave", function () {
+      $(this).css("transform", "translateY(0)");
+    });
+
+  // Lazy Loading for Images
+  if ("IntersectionObserver" in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.style.opacity = "0";
+          img.style.transition = "opacity 0.5s";
+          setTimeout(() => {
+            img.style.opacity = "1";
+          }, 100);
+          imageObserver.unobserve(img);
+        }
       });
-
-      // Add active class to clicked link
-      this.classList.add("nav__link--active");
-    });
-  });
-
-  // Add hover effect to news cards
-  const newsCards = document.querySelectorAll(".news-card");
-  newsCards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.style.transform = "translateY(-5px)";
     });
 
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0)";
-    });
-  });
-
-  // Dynamic date update
-  const updateDateTime = () => {
-    const now = new Date();
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      weekday: "long",
-    };
-    const dateStr = now.toLocaleDateString("tr-TR", options).toUpperCase();
-
-    const dateElements = document.querySelectorAll(".top-bar__date span");
-    if (dateElements.length > 0) {
-      dateElements[0].textContent = dateStr;
-    }
-  };
-
-  updateDateTime();
-
-  // Lazy loading for images
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.classList.add("fade-in");
-        observer.unobserve(img);
-      }
-    });
-  });
-
-  document
-    .querySelectorAll(
-      ".news-card__image, .slider-item__image, .bottom-news-item__image"
-    )
-    .forEach((img) => {
-      imageObserver.observe(img);
-    });
-
-  // Mobile menu toggle (for responsive design)
-  const createMobileMenu = () => {
-    if (window.innerWidth <= 768) {
-      const navList = document.querySelector(".nav__list");
-      if (navList && !document.querySelector(".mobile-menu-toggle")) {
-        const toggleBtn = document.createElement("button");
-        toggleBtn.className = "mobile-menu-toggle";
-        toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        toggleBtn.style.cssText = `
-                            position: fixed;
-                            bottom: 20px;
-                            right: 20px;
-                            background: var(--primary-red);
-                            color: white;
-                            border: none;
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 50%;
-                            font-size: 20px;
-                            cursor: pointer;
-                            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                            z-index: 1000;
-                            display: none;
-                        `;
-
-        document.body.appendChild(toggleBtn);
-
-        toggleBtn.addEventListener("click", () => {
-          navList.style.display =
-            navList.style.display === "flex" ? "none" : "flex";
-          navList.style.flexDirection = "column";
-          navList.style.position = "fixed";
-          navList.style.top = "0";
-          navList.style.left = "0";
-          navList.style.right = "0";
-          navList.style.background = "white";
-          navList.style.zIndex = "999";
-          navList.style.padding = "20px";
-          navList.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-        });
-      }
-    }
-  };
-
-  createMobileMenu();
-  window.addEventListener("resize", createMobileMenu);
-
-  // Performance optimization: Debounce scroll events
-  let scrollTimeout;
-  window.addEventListener("scroll", () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      // Add any scroll-based animations or effects here
-    }, 100);
-  });
-
-  // Console log for demo purposes
-  console.log("Star Gazetesi - Responsive Web Sitesi yüklendi!");
-  console.log("Bootstrap Grid ✓");
-  console.log("SCSS/CSS Variables ✓");
-  console.log("Owl Carousel ✓");
-  console.log("Responsive Design ✓");
-  console.log("Best Practices ✓");
+    document
+      .querySelectorAll(
+        ".news-card__image, .slider-item__image, .bottom-news-item__image"
+      )
+      .forEach((img) => {
+        imageObserver.observe(img);
+      });
+  }
 });

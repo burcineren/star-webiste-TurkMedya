@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Star Gazetesi - Anasayfa</title>
+    <title>Star Gazetesi - Milli İradenin Sesi</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -26,133 +26,167 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="header__top">
-          <div class="row align-items-center">
-            <div class="col-12 text-center">
-              <div class="">
-                <img src="./images/starlogo2025.png" alt="Logo" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav">
-      <div class="container">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#" class="nav__link nav__link--active">SON DAKİKA</a>
-          </li>
-          <li class="nav__item"><a href="#" class="nav__link">GÜNDEMİ</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">DÜNYA</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">EKONOMİ</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">SPOR</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">YAŞAM</a></li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">BİLİM-TEKNOLOJİ</a>
-          </li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">AÇIK GÖRÜŞ</a>
-          </li>
-          <li class="nav__item"><a href="#" class="nav__link">YAZARLAR</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Top Bar -->
-    <div class="top-bar">
+    <!-- Top Header -->
+    <div class="top-header">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-8">
-            <div class="top-bar__left">
-              <div class="top-bar__date">
-                <a href="#" class="top-bar__item">
-                  <i class="far fa-calendar"></i>
-                  <span>11 KASIM, SALI</span>
-                </a>
-                <a href="#" class="top-bar__item">
-                  <i class="fas fa-euro-sign"></i>
-                  <span>EURO: 37.67</span>
-                </a>
-                <a href="#" class="top-bar__item">
-                  <i class="fas fa-dollar-sign"></i>
-                  <span>DOLAR: 34.67</span>
-                </a>
-                <a href="#" class="top-bar__item">
-                  <i class="fas fa-coins"></i>
-                  <span>ALTIN: 4.028,97</span>
-                </a>
-                <a href="#" class="top-bar__item">
-                  <i class="fas fa-chart-line"></i>
-                  <span>BİST100: 9.412,51</span>
-                </a>
+          <div class="col-lg-3 col-md-12">
+            <div class="weather-info">
+              <span class="weather-info__city">İSTANBUL</span>
+              <span class="weather-info__temp">17°C / 8°C</span>
+              <div class="weather-info__desc">Parçalı bulutlu, güneşli</div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="logo-container">
+              <img src="./images/starlogo.png" alt="Logo" />
+              <div class="site-tagline">
+                13 Kasım 2025 Perşembe / 23 Cemaziyelevvel 1447
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="top-bar__right">
-              <a href="#" class="top-bar__item">
-                <i class="fas fa-newspaper"></i>
-                <span>E-GAZETE</span>
-              </a>
-              <a href="#" class="top-bar__item">
-                <i class="fas fa-play-circle"></i>
-                <span>STAR TV</span>
-              </a>
-              <div class="top-bar__social">
-                <a href="#" class="top-bar__social-link"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" class="top-bar__social-link"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="top-bar__social-link"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" class="top-bar__social-link"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-              </div>
+          <div class="col-lg-3 col-md-12">
+            <div class="date-time-info">
+              <button class="night-mode-btn">
+                <i class="fas fa-moon"></i>
+                Gece modu
+              </button>
+              <div class="date-time-info__date">İSTANBUL</div>
+              <div class="date-time-info__time" id="currentTime">04:34:46</div>
+              <div class="date-time-info__remaining">İmsak kalan süre</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Breaking News Ticker -->
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link nav-list__link--active"
+              >SON DAKİKA</a
+            >
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">GÜNCEL</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">DÜNYA</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">EKONOMİ</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">SPOR</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">YAŞAM</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">BİLİM-TEKNOLOJİ</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">AÇIK GÖRÜŞ</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">YAZARLAR</a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#" class="nav-list__link">SEYAHAT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Market Bar -->
+    <div class="market-bar">
+      <div class="container">
+        <div class="market-bar__container">
+          <div class="market-bar__left">
+            <div class="market-item">
+              <span class="market-item__label">DOLAR</span>
+              <span class="market-item__value">42,264</span>
+            </div>
+            <div class="market-item">
+              <span class="market-item__label">EURO</span>
+              <span class="market-item__value">49,1408</span>
+            </div>
+            <div class="market-item">
+              <span class="market-item__label">ALTIN</span>
+              <span class="market-item__value">5676.58</span>
+            </div>
+          </div>
+          <div class="market-bar__right">
+            <a href="#" class="market-bar__link">
+              <i class="far fa-images"></i>
+              FOTO GALERİ
+            </a>
+            <a href="#" class="market-bar__link">
+              <i class="fas fa-play-circle"></i>
+              VİDEO GALERİ
+            </a>
+            <a href="#" class="market-bar__link">
+              <i class="fas fa-satellite-dish"></i>
+              CANLI YAYIN
+            </a>
+            <div class="market-bar__social">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="social-icon"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breaking News Ticker (Slider) -->
+
     <div class="breaking-news">
       <div class="container">
-        <div class="breaking-news__container">
-          <span class="breaking-news__label">SON DAKİKA</span>
-          <div class="breaking-news__content">
-            <a href="#" class="breaking-news__item"
-              >Sosyal medyada yeni düzenleme hazırlığı, 'Yakından takip
-              ediyoruz' dedi...</a
-            >
-            <a href="#" class="breaking-news__item"
-              >Afşin'den son dakikalar: Türkiye güvenlik tedbirlerini
-              artırdı...</a
-            >
-            <a href="#" class="breaking-news__item"
-              >Ekonomik pakette kritik gelişme, enflasyon hedefleri
-              açıklandı...</a
-            >
-            <a href="#" class="breaking-news__item"
-              >Sosyal medyada yeni düzenleme hazırlığı, 'Yakından takip
-              ediyoruz' dedi...</a
-            >
-            <a href="#" class="breaking-news__item"
-              >Afşin'den son dakikalar: Türkiye güvenlik tedbirlerini
-              artırdı...</a
-            >
+        <div class="breaking-news__wrapper">
+          <div class="breaking-news__label">
+            SON <br />
+            DAKİKA
+          </div>
+          <div class="breaking-news__slider">
+            <div class="owl-carousel breaking-news-carousel">
+              <div class="breaking-news__item">
+                <span class="breaking-news__time">00:15</span>
+                <a href="#" class="breaking-news__text"
+                  >UEFA, EURO 2028 açılış ve final maçlarının statlarını
+                  açıkladı</a
+                >
+              </div>
+              <div class="breaking-news__item">
+                <span class="breaking-news__time">23:51</span>
+                <a href="#" class="breaking-news__text"
+                  >Arda Güler'e büyük övgü!</a
+                >
+              </div>
+              <div class="breaking-news__item">
+                <span class="breaking-news__time">23:22</span>
+                <a href="#" class="breaking-news__text"
+                  >Ekonomik paket detayları belli oldu</a
+                >
+              </div>
+              <div class="breaking-news__item">
+                <span class="breaking-news__time">22:45</span>
+                <a href="#" class="breaking-news__text"
+                  >Kritik zirve yarın yapılacak</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -165,11 +199,11 @@
         <div class="owl-carousel owl-theme" id="mainSlider">
           <div class="slider-item">
             <img
-              src="https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=1200&h=500&fit=crop"
+              src="https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=1200&h=600&fit=crop"
               alt="Haber 1"
               class="slider-item__image"
             />
-            <div class="slider-item__content">
+            <div class="slider-item__overlay">
               <h2 class="slider-item__title">
                 Şehitlerimize dualarla veda... Başkan Erdoğan: Komutanlığın
                 ötesinde duruşuyla çok değerliydi
@@ -182,11 +216,11 @@
           </div>
           <div class="slider-item">
             <img
-              src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=500&fit=crop"
+              src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=600&fit=crop"
               alt="Haber 2"
               class="slider-item__image"
             />
-            <div class="slider-item__content">
+            <div class="slider-item__overlay">
               <h2 class="slider-item__title">
                 Ekonomide yeni dönem başlıyor: Kritik açıklamalar peş peşe geldi
               </h2>
@@ -198,11 +232,11 @@
           </div>
           <div class="slider-item">
             <img
-              src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=500&fit=crop"
+              src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=600&fit=crop"
               alt="Haber 3"
               class="slider-item__image"
             />
-            <div class="slider-item__content">
+            <div class="slider-item__overlay">
               <h2 class="slider-item__title">
                 Dünya gündeminde önemli gelişme: Liderler acil toplantıda
                 buluştu
@@ -227,7 +261,7 @@
                   alt="Haber"
                   class="news-card__image"
                 />
-                <span class="news-card__category">GÜNDEMİ</span>
+                <span class="news-card__category">GÜNCEL</span>
               </div>
               <div class="news-card__content">
                 <h3 class="news-card__title">
@@ -238,6 +272,10 @@
                   <span class="news-card__meta-item">
                     <i class="far fa-clock"></i>
                     2 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    1.234
                   </span>
                 </div>
               </div>
@@ -263,6 +301,10 @@
                     <i class="far fa-clock"></i>
                     3 saat önce
                   </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    892
+                  </span>
                 </div>
               </div>
             </article>
@@ -287,6 +329,10 @@
                     <i class="far fa-clock"></i>
                     4 saat önce
                   </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    2.145
+                  </span>
                 </div>
               </div>
             </article>
@@ -304,12 +350,17 @@
               </div>
               <div class="news-card__content">
                 <h3 class="news-card__title">
-                  Galip Konaksayar şampiyon takımı durdu! Puan kaybetti
+                  Galatasaray şampiyonluk yolunda durdurulamıyor! Puan
+                  kaybetmedi
                 </h3>
                 <div class="news-card__meta">
                   <span class="news-card__meta-item">
                     <i class="far fa-clock"></i>
                     5 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    3.567
                   </span>
                 </div>
               </div>
@@ -335,6 +386,10 @@
                     <i class="far fa-clock"></i>
                     6 saat önce
                   </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    1.876
+                  </span>
                 </div>
               </div>
             </article>
@@ -352,13 +407,100 @@
               </div>
               <div class="news-card__content">
                 <h3 class="news-card__title">
-                  Önemli Davidson yakalanan Marku faşşla düzenlenen
-                  operasyonla...
+                  Sağlıklı yaşam için uzmanlardan önemli uyarılar geldi
                 </h3>
                 <div class="news-card__meta">
                   <span class="news-card__meta-item">
                     <i class="far fa-clock"></i>
                     7 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    945
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <article class="news-card">
+              <div class="news-card__image-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop"
+                  alt="Haber"
+                  class="news-card__image"
+                />
+                <span class="news-card__category">POLİTİKA</span>
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  Mecliste yeni dönem: Önemli kanun tasarıları gündemde
+                </h3>
+                <div class="news-card__meta">
+                  <span class="news-card__meta-item">
+                    <i class="far fa-clock"></i>
+                    8 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    2.234
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <article class="news-card">
+              <div class="news-card__image-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop"
+                  alt="Haber"
+                  class="news-card__image"
+                />
+                <span class="news-card__category">EĞİTİM</span>
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  Üniversite sınavlarında yeni sistem açıklandı
+                </h3>
+                <div class="news-card__meta">
+                  <span class="news-card__meta-item">
+                    <i class="far fa-clock"></i>
+                    9 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    4.123
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <article class="news-card">
+              <div class="news-card__image-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop"
+                  alt="Haber"
+                  class="news-card__image"
+                />
+                <span class="news-card__category">FİNANS</span>
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  Borsa'da tarihi rekor: İşte en çok kazandıran hisseler
+                </h3>
+                <div class="news-card__meta">
+                  <span class="news-card__meta-item">
+                    <i class="far fa-clock"></i>
+                    10 saat önce
+                  </span>
+                  <span class="news-card__meta-item">
+                    <i class="far fa-eye"></i>
+                    1.567
                   </span>
                 </div>
               </div>
@@ -375,7 +517,7 @@
         <div class="owl-carousel owl-theme" id="bottomNewsCarousel">
           <div class="bottom-news-item">
             <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=200&fit=crop"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=220&fit=crop"
               alt="Yazar"
               class="bottom-news-item__image"
             />
@@ -393,7 +535,7 @@
 
           <div class="bottom-news-item">
             <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=200&fit=crop"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=220&fit=crop"
               alt="Yazar"
               class="bottom-news-item__image"
             />
@@ -410,7 +552,7 @@
 
           <div class="bottom-news-item">
             <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=200&fit=crop"
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=220&fit=crop"
               alt="Yazar"
               class="bottom-news-item__image"
             />
@@ -427,7 +569,7 @@
 
           <div class="bottom-news-item">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=220&fit=crop"
               alt="Yazar"
               class="bottom-news-item__image"
             />
@@ -444,7 +586,7 @@
 
           <div class="bottom-news-item">
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=200&fit=crop"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=220&fit=crop"
               alt="Yazar"
               class="bottom-news-item__image"
             />
@@ -458,6 +600,23 @@
               </div>
             </div>
           </div>
+
+          <div class="bottom-news-item">
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=220&fit=crop"
+              alt="Yazar"
+              class="bottom-news-item__image"
+            />
+            <div class="bottom-news-item__content">
+              <h3 class="bottom-news-item__title">
+                Siyasette yeni dönem: Kritik görüşmeler yapılıyor...
+              </h3>
+              <div class="bottom-news-item__author">
+                <div class="bottom-news-item__avatar">BK</div>
+                <span>Burak Kılıç</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -467,7 +626,8 @@
       <div class="container">
         <div class="footer__content">
           <p class="footer__text">
-            &copy; 2025 Star Gazetesi. Tüm hakları saklıdır.
+            &copy; 2025 Star Gazetesi - Milli İradenin Sesi. Tüm hakları
+            saklıdır.
           </p>
           <p class="footer__text">
             Bu site eğitim amaçlı oluşturulmuş bir demo projesidir.
@@ -484,7 +644,6 @@
 
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
     <script src="js/script.js"></script>
   </body>
 </html>
