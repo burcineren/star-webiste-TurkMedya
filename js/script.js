@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // Main Slider Configuration
   $("#mainSlider").owlCarousel({
     items: 1,
     loop: true,
@@ -34,8 +33,8 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     nav: false,
     dots: false,
-    animateOut: "slideOutUp",
-    animateIn: "slideInUp",
+    animateOut: "fadeOut",
+    animateIn: "fadeIn",
     smartSpeed: 600,
   });
 

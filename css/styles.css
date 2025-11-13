@@ -347,7 +347,7 @@ body {
   background-color: var(--primary-red);
   color: var(--white);
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .breaking-news__wrapper {
@@ -368,14 +368,14 @@ body {
 
 .breaking-news__slider {
   flex: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .breaking-news__item {
-  padding: 15px 30px;
+  padding: 15px 15px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .breaking-news__time {
@@ -747,7 +747,8 @@ body {
   }
 
   .breaking-news__item {
-    padding: 15px 20px;
+    padding: 15px 10px;
+    gap: 5px;
   }
 
   .bottom-news__title {

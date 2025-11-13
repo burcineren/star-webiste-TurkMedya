@@ -349,7 +349,7 @@ body {
   background-color: var(--primary-red);
   color: var(--white);
   padding: 0;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .breaking-news__wrapper {
@@ -370,7 +370,7 @@ body {
 
 .breaking-news__slider {
   flex: 1;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .breaking-news__item {
